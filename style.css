@@ -1,0 +1,22 @@
+
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 2em;
+  background: #f9f9f9;
+}
+details {
+  margin: 1em 0;
+  padding: 1em;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+summary {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+textarea, input {
+  font-family: monospace;
+}

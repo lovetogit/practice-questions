@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New Question</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>➕ Add New Q&A</h1>
+  <p>Copy the result below into your <code>index.html</code>.</p>
+
+  <label>Question:</label><br>
+  <input type="text" id="question" style="width:100%"><br><br>
+
+  <label>Answer:</label><br>
+  <textarea id="answer" rows="6" style="width:100%"></textarea><br><br>
+
+  <button onclick="generate()">Generate HTML Block</button>
+
+  <h3>⬇️ Result:</h3>
+  <textarea id="output" rows="6" style="width:100%" readonly></textarea>
+
+  <script>
+    let count = 2; // Update this number to match your latest total
+
+    function generate() {
+      const q = document.getElementById("question").value.trim();
+      const a = document.getElementById("answer").value.trim();
+      if (!q || !a) return alert("Fill both fields");
+
+      const html = `<details>\n  <summary>${++count}. ${q}</summary>\n  <p>${a.replace(/\n/g, '<br>')}</p>\n</details>`;
+      document.getElementById("output").value = html;
+    }
+  </script>
+
+  <footer style="margin-top:3em">
+    <a href="index.html">⬅ Back to Questions</a>
+  </footer>
+</body>
+</html>
