@@ -24,6 +24,14 @@ pipeline {
             steps {
                 echo 'Running the Docker container...'
                 sh 'docker run -d -p 5000:5000 --name practice-questions-container $IMAGE_NAME || true'
+	    }
+	}
+	stage('Update DB & HTML') {
+	    steps {
+		sh 'python3 update_db_and_generate_html.py'
+    }
+}
+
             }
         }
     }
