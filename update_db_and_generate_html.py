@@ -4,7 +4,7 @@ import os
 
 DB_PATH = 'app/questions.db'
 CSV_PATH = 'questions.csv'
-HTML_PATH = 'app/templates/index.html'
+HTML_PATH = 'docs/index.html'
 
 def init_db():
     os.makedirs("app", exist_ok=True)
