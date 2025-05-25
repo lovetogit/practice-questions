@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Question</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 1rem; }
+    input, textarea { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Add a New Question</h1>
+  <form method="POST" action="/add-question">
+    <label>Secret Token:
+      <input name="token" type="password" required />
+    </label>
+    <label>Question:
+      <textarea name="question" required></textarea>
+    </label>
+    <label>Answer:
+      <textarea name="answer"></textarea>
+    </label>
+    <label>Topic:
+      <input name="topic" />
+    </label>
+    <label>Difficulty:
+      <input name="difficulty" />
+    </label>
+    <button type="submit">Add Question</button>
+  </form>
+</body>
+</html>
+
