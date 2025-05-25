@@ -2,54 +2,33 @@
 <html>
 <head>
   <title>Add Question</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 1rem; }
+    input, textarea { width: 100%; padding: 0.5rem; margin-top: 0.5rem; }
+    button { margin-top: 1rem; padding: 0.5rem 1rem; }
+  </style>
 </head>
 <body>
-  <h1>Add New Q&A</h1>
-  <form id="qaForm">
-    <label>Question:</label><br>
-    <input type="text" id="question" name="question" required><br><br>
-    <label>Answer:</label><br>
-    <textarea id="answer" name="answer" required></textarea><br><br>
-    <button type="submit">Submit</button>
+  <h1>Add a New Question</h1>
+  <form method="POST" action="/add-question">
+    <label>Secret Token:
+      <input name="token" type="password" required />
+    </label>
+    <label>Question:
+      <textarea name="question" required></textarea>
+    </label>
+    <label>Answer:
+      <textarea name="answer"></textarea>
+    </label>
+    <label>Topic:
+      <input name="topic" />
+    </label>
+    <label>Difficulty:
+      <input name="difficulty" />
+    </label>
+    <button type="submit">Add Question</button>
   </form>
-
-  <p id="result"></p>
-
-  <script>
-    const form = document.getElementById("qaForm");
-    const result = document.getElementById("result");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const question = document.getElementById("question").value;
-      const answer = document.getElementById("answer").value;
-
-      const payload = {
-        question,
-        answer,
-        timestamp: new Date().toISOString()
-      };
-
-      const res = await fetch("https://api.github.com/repos/lovetogit/practice-questions/dispatches", {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer GH_PAT",
-          "Accept": "application/vnd.github.everest-preview+json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          event_type: "new-question",
-          client_payload: payload
-        })
-      });
-
-      if (res.ok) {
-        result.textContent = "✅ Sent! It will be added soon.";
-      } else {
-        result.textContent = "❌ Failed. Check console.";
-        console.log(await res.text());
-      }
-    });
-  </script>
 </body>
 </html>
