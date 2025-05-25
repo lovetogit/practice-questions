@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify, render_template
 import sqlite3
 import os
+import subprocess
+subprocess.run(['python3', 'update_db_and_generate_html.py'])
+
 
 app = Flask(__name__)
 
