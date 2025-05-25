@@ -1,33 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Practice Questions</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <title>Linux, Git & DevOps Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: sans-serif; padding: 2rem; }
-    .question { margin-bottom: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 1rem; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #222;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    p.sub {
+      text-align: center;
+      font-style: italic;
+      color: #666;
+    }
+    details {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+      margin: 1rem 0;
+      padding: 1rem;
+      transition: all 0.2s ease;
+    }
+    summary {
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    p {
+      margin: 0.75rem 0 0;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
-  <h1>Practice Questions</h1>
-  <div id="questions"></div>
+  <h1>🧠 Linux, Git & DevOps Practice Q&A</h1>
+  <p class="sub">Tap a question to reveal the answer</p>
 
-  <script>
-    fetch('/questions')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('questions');
-        data.forEach(q => {
-          const el = document.createElement('div');
-          el.className = 'question';
-          el.innerHTML = `
-            <strong>Q:</strong> ${q.question} <br>
-            <strong>A:</strong> ${q.answer || '—'} <br>
-            <em>${q.topic || 'No topic'} | ${q.difficulty || 'Unknown'}</em>
-          `;
-          container.appendChild(el);
-        });
-      });
-  </script>
+  <!-- DROP YOUR QUESTIONS HERE -->
+  <details>
+    <summary>What does the <code>ls</code> command do?</summary>
+    <p>Lists directory contents.</p>
+  </details>
+
+  <details>
+    <summary>What is the purpose of <code>chmod</code>?</summary>
+    <p>It changes the permissions of a file or directory.</p>
+  </details>
+
+  <!-- Copy-paste more <details> elements from your previous file -->
+
 </body>
 </html>
